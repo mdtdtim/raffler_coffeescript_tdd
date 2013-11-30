@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Raffler App - Coffee Script</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/normalize.css">  	
+</head>
+<body>
+    <h1>Raffler</h1>
+    <div id="container">
+    <script type="text/template" id="item-template">
+        <input type="text" id="new_entry"/>
+        <button id="new">Add</button>
+        <button id="draw">Draw Winner</button>     
+        <button id="reset">RESET</button>  
+        <ul>
+      <% _.each(entries, function(entry){ %>
+            <li id='<%- entry.id %>'>
+            <%- entry.name %><span class="entry-winner"><% if (entry.winner) { %>WINNER<% } %></span>
+            </li>
+      <% }); %>
+    </ul>
+    </script>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+    <script src="js/lib/backbone.localStorage.js"></script> 
+    <script src="src/raffler.js"></script>
+</body>
+</html>
